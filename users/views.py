@@ -10,7 +10,7 @@ class RegisterUser(CreateView):
     form_class = UserRegisterForm
 
     def get_success_url(self):
-        return reverse('blog-home')
+        return reverse('login')
 
     def form_valid(self, form):
         user_object = form.save()

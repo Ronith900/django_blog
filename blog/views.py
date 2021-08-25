@@ -1,8 +1,8 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.shortcuts import reverse
+from django.views.generic import TemplateView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Tweet
-from django.http import HttpResponse
+from .forms import CreateTweetForm
 
 # Create your views here.
 
@@ -38,3 +38,14 @@ class About(LoginRequiredMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'About Page'
         return context
+
+class Create(LoginRequiredMixin, CreateView):
+    template_name = 'blog/create.html'
+    form_class = CreateTweetForm
+
+    def get_success_url(self):
+        return reverse('blog-home')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)

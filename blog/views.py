@@ -1,5 +1,5 @@
 from django.shortcuts import reverse
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Tweet
 from .forms import CreateTweetForm
@@ -49,3 +49,20 @@ class Create(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+
+class UpdateTweet(LoginRequiredMixin, UpdateView):
+    template_name = 'blog/create.html'
+    form_class = CreateTweetForm
+    model = Tweet
+
+    def get_success_url(self):
+        return reverse('blog-home')
+
+
+class DeleteTweet(LoginRequiredMixin, DeleteView):
+    template_name = 'blog/Delete.html'
+    model = Tweet
+
+    def get_success_url(self):
+        return reverse('blog-home')

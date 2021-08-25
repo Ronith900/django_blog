@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Tweet
 from django.http import HttpResponse
 
 # Create your views here.
@@ -19,12 +22,19 @@ posts = [
 ]
 
 
-def home(request):
-    context = {
-        'posts': posts
-    }
-    return render(request, 'blog/home.html', context)
+class Home(LoginRequiredMixin, TemplateView):
+    template_name = 'blog/home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tweets'] = Tweet.objects.filter(user=self.request.user)
+        return context
 
 
-def about(request):
-    return render(request, 'blog/about.html', {'title': 'About'})
+class About(LoginRequiredMixin, TemplateView):
+    template_name = 'blog/about.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'About Page'
+        return context

@@ -1,6 +1,9 @@
 {% extends "main/base.html" %}
 {% block content %}
-    {% for post in posts %}
+    {% if tweets|length == 0%}
+        No tweets
+    {% else %}
+    {% for post in tweets %}
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
@@ -12,4 +15,5 @@
           </div>
         </article>
     {% endfor %}
+    {% endif %}
 {% endblock content %}

@@ -6,4 +6,4 @@ db.sqlite3
 migrations
 *.iml
 *.xml
-*.env
+.env

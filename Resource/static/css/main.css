@@ -98,7 +98,7 @@ a.article-title:hover {
   border-bottom: 1px solid #e3e3e3
 }
 
-.flex-container {
+.tweet-container {
   background: #ffffff;
   padding: 10px 20px;
   border: 1px solid #dddddd;
@@ -106,17 +106,16 @@ a.article-title:hover {
   display:flex;
   flex-direction: row;
   justify-content:flex-left;
-  align-item:center;
   margin: 5px 70px;
 
 }
 
-.flex-box{
+.tweet-box{
     flex-basis: 5rem;
     flex-grow:1;
 }
 
-.content-image{
+.tweet-image{
     flex-grow:0;
     padding:5px;
     float:center;
@@ -124,8 +123,8 @@ a.article-title:hover {
     height:4rem;
 }
 
-.content-body{
-margin-top:10px;
+.tweet-body{
+    margin-top:10px;
 }
 
 .article-username{

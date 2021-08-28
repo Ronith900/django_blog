@@ -114,12 +114,11 @@ a.article-title:hover {
 .flex-box{
     flex-basis: 5rem;
     flex-grow:1;
-    margin: 0.1rem
 }
 
 .content-image{
     flex-grow:0;
-    padding:10px;
+    padding:5px;
     float:center;
     width:4rem;
     height:4rem;

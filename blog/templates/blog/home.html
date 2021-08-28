@@ -1,23 +1,31 @@
 {% extends "main/base.html" %}
+{% load static%}
 {% block content %}
-    {% if tweets|length == 0%}
-        No tweets
-    {% else %}
-    {% for post in tweets %}
-        <article class="media content-section">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="#">{{ post.user.username }}</a>
-              <small class="text-muted">{{ post.created_at }}</small>
-                <span class="float-right">
-                    <a class="btn btn-outline-primary btn-sm" href="{%url 'blog-update' post.pk%}"><i class="fas fa-edit"></i></a>
-                    <a  class="btn btn-outline-danger btn-sm " href="{%url 'blog-delete' post.pk%}"><i class="fas fa-trash"></i></a>
+{% if tweets|length == 0%}
+No tweets
+{% else %}
+
+{% for post in tweets %}
+<div class="flex-container">
+    <div class="flex-box content-image"><img src="{% static 'default.jpeg' %}" alt="My image" class="profile-pic"></div>
+    <div class="flex-box content-description">
+        <div class="media-header">
+            <span class="article-username">{{ post.user.username }}</span>
+            <a class="small" href="#">@{{ post.user.username }}</a>&nbsp;
+            <span class="small text-muted">{{ post.created_at }}</span>
+            <span class="float-right">
+                    <a class="btn btn-outline-primary btn-sm" href="{%url 'blog-update' post.pk%}"><i
+                            class="fas fa-edit"></i></a>
+                    <a class="btn btn-outline-danger btn-sm " href="{%url 'blog-delete' post.pk%}"><i
+                            class="fas fa-trash"></i></a>
                 </span>
-            </div>
-            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.description }}</p>
-          </div>
-        </article>
-    {% endfor %}
-    {% endif %}
+        </div>
+        <div class="content-body">
+            {{post.description}}
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endif %}
 {% endblock content %}

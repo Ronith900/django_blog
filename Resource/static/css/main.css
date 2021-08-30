@@ -137,27 +137,6 @@ a.article-title:hover {
 }
 
 
-.profile-container{
-    background: #ffffff;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-   display:flex;
-    flex-direction:row;
-
-}
-
-.user-profile{
-    flex: auto;
-    flex-grow:1;
-    width:7rem;
-    height:7rem;
-    margin:1rem
-}
-
-.user-profile-image{
-    flex-grow:0;
-}
 
 .profile-pic-user {
   width: 100px;

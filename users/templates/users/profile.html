@@ -5,11 +5,80 @@
 <div class="profile-container">
     <div class="user-profile user-profile-image">
         <img src="{{user.profile.image.url}}" alt="profile-pic" class="profile-pic-user">
+
     </div>
     <div class="user-profile">
-        <h4>{{user.username}}</h4>
+        <div class="up-name">
+            {{user.username}}
+            <span class="float-right">
+            <a class="btn btn-primary btn-sm">Edit</a>
+        </span>
+        </div>
+        <div class="up-bio">
+            <span><b>Bio:</b> Some stupid bio</span>
+        </div>
+        <div class="up-extra-info">
+            <div class="up-extra-info-box">Location: Singapore</div>
+            <div class="up-extra-info-box">DOB: 21/10/1994</div>
+            <div class="up-extra-info-box">Occupation: Software Engineer</div>
+        </div>
     </div>
 </div>
 
+{% endblock %}
+
+{% block extra-css %}
+<style rel="stylesheet">
+    .up-extra-info{
+        margin-top:2rem;
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        align-content:center;
+    }
+
+    .up-extra-info-box{
+        width:15rem;
+        height:5rem;
+    }
+
+    .up-bio{
+        margin-top:1rem;
+        margin-bottom:1rem;
+        border-bottom: 1px solid #e3e3e3
+    }
+
+
+    .profile-container{
+      background: #ffffff;
+      padding: 10px 20px;
+      border: 1px solid #dddddd;
+      border-radius: 3px;
+      display:flex;
+      flex-direction:row;
+      height:20vh;
+      margin-top:2rem;
+
+    }
+
+    .up-name{
+    font-weight:bold;
+    font-size:25px;
+    }
+
+    .user-profile{
+        flex: auto;
+        flex-grow:1;
+        width:7rem;
+        height:7rem;
+        margin:1rem
+    }
+
+    .user-profile-image{
+        flex-grow:0;
+    }
+
+
+</style>
 {% endblock %}
 

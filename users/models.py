@@ -7,6 +7,10 @@ from PIL import Image
 class Profile(AbstractModel):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpeg', upload_to='profile_pics')
+    country = models.CharField(max_length=250,blank=True,null=True,default=None)
+    dob = models.CharField(max_length=250, blank=True, null=True, default=None)
+    occupation = models.CharField(max_length=250, blank=True, null=True, default=None)
+    bio = models.TextField(blank=True,null=True,default=None)
 
     def __str__(self):
         return f'{self.user.username} Profile'

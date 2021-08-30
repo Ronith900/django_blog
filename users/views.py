@@ -1,8 +1,9 @@
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, reverse
-from django.views.generic import CreateView, DetailView
-from .forms import UserRegisterForm
+from django.views.generic import CreateView, DetailView, UpdateView
+from .forms import UserRegisterForm, UserProfileForm
+from .models import Profile
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 
@@ -23,3 +24,13 @@ class RegisterUser(CreateView):
 class UserProfile(LoginRequiredMixin, DetailView):
     model = User
     template_name = 'users/profile.html'
+
+
+class UserProfileEdit(LoginRequiredMixin, UpdateView):
+    model = Profile
+    form_class = UserProfileForm
+    template_name = 'users/profile_edit.html'
+
+
+    def get_success_url(self):
+        return reverse('user-profile',kwargs={'pk': self.object.user.pk})

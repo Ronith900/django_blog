@@ -3,15 +3,18 @@
     <div class="tweet-box tweet-image"><img src="{{post.user.profile.image}}" alt="My image" class="profile-pic"></div>
     <div class="tweet-box tweet-body">
         <div class="media-header">
-            <span class="article-username">{{ post.user.username }}</span>
+            <div class="col-md-12">
+                <span class="article-username">{{ post.user.username }}</span>
             <a class="small" href="#">@{{ post.user.username }}</a>&nbsp;
             <span class="small text-muted">{{ post.created_at }}</span>
-            <span class="float-right">
+                <span class="float-right">
                     <a class="btn btn-outline-primary btn-sm" href="{%url 'blog-update' post.pk%}"><i
                             class="fas fa-edit"></i></a>
                     <a class="btn btn-outline-danger btn-sm " href="{%url 'blog-delete' post.pk%}"><i
                             class="fas fa-trash"></i></a>
                 </span>
+            </div>
+
         </div>
         <div class="content-body">
             {{post.description}}

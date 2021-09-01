@@ -11,7 +11,7 @@
         <div class="up-name">
             {{user.username}}
             <span class="float-right">
-            <a class="btn btn-primary btn-sm" href="{% url 'profile-edit' user.pk %}">Edit</a>
+            <a class="btn btn-primary btn-sm" href="{% url 'profile-edit' user.profile.pk %}">Edit</a>
         </span>
         </div>
         <div class="up-bio">

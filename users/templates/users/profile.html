@@ -4,7 +4,8 @@
 
 <div class="profile-container">
     <div class="user-profile user-profile-image">
-        <img src="{{user.profile.image.url}}" alt="profile-pic" class="profile-pic">
+        <img src="{{user.profile.image.url}}" alt="profile-pic" class="profile-pic float-center">
+
 
     </div>
     <div class="user-profile">
@@ -24,11 +25,36 @@
         </div>
     </div>
 </div>
+<br>
+<!--<div class="m-con">-->
+    <!--<div class="b1">A</div>-->
+    <!--<div class="b1">B</div>-->
+    <!--<div class="b1">C</div>-->
+<!--</div>-->
 
 {% endblock %}
 
 {% block extra-css %}
 <style rel="stylesheet">
+    .m-con{
+        border:1px solid grey;
+        height:500px;
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        align-items:center;
+    }
+
+    .b1{
+        width:50px;
+        height:50px;
+        background:gold;
+        margin:50px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
     .up-extra-info{
         margin-top:2rem;
         display:flex;
@@ -40,6 +66,9 @@
     .up-extra-info-box{
         width:15rem;
         height:5rem;
+        display:flex;
+        justify-content:start-left;
+        align-items:center;
     }
 
     .up-bio{
@@ -47,6 +76,8 @@
         margin-bottom:1rem;
         border-bottom: 1px solid #e3e3e3
     }
+
+    .test{}
 
 
     .profile-container{
@@ -56,7 +87,7 @@
       border-radius: 3px;
       display:flex;
       flex-direction:row;
-      height:30vh;
+      height:300px;;
       margin-top:2rem;
 
     }
@@ -76,6 +107,9 @@
 
     .user-profile-image{
         flex-grow:0;
+        display:flex;
+        align-items:center;
+        justify-content:center;
     }
 
 

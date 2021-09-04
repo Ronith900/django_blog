@@ -1,23 +1,21 @@
 {% load static%}
-<div class="tweet-container">
-    <div class="tweet-box tweet-image"><img src="{{post.user.profile.image}}" alt="My image" class="profile-pic"></div>
-    <div class="tweet-box tweet-body">
-        <div class="media-header">
-            <div class="col-md-12">
-                <span class="article-username">{{ post.user.username }}</span>
-            <a class="small" href="#">@{{ post.user.username }}</a>&nbsp;
-            <span class="small text-muted">{{ post.created_at }}</span>
-                <span class="float-right">
-                    <a class="btn btn-outline-primary btn-sm" href="{%url 'blog-update' post.pk%}"><i
-                            class="fas fa-edit"></i></a>
-                    <a class="btn btn-outline-danger btn-sm " href="{%url 'blog-delete' post.pk%}"><i
-                            class="fas fa-trash"></i></a>
-                </span>
-            </div>
 
+
+<div class="card-panel white lighten-5 z-depth-1">
+    <div class="row valign-wrapper">
+        <div class="col s2">
+            <img src="{{post.user.profile.image}}" alt="" class="circle responsive-img"
+                 style="width:80px;height;80px,radius:40px"> <!-- notice the "circle" class -->
         </div>
-        <div class="content-body">
-            {{post.description}}
+        <div class="col s12">
+            <div style="border-bottom:4px solid #dddddd;">
+                <span class="tweet-username">{{post.user.username}} </span>
+                <div class="tweet-posted">{{post.created_at}}</div>
+
+            </div>
+            <div class="flow-text" style="padding-top:10px;">
+                {{post.description}}
+            </div>
         </div>
     </div>
 </div>

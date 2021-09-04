@@ -6,8 +6,25 @@ No tweets
 {% else %}
 
 {% for post in tweets %}
-    {% include 'blog/_tweet.html' with post=post %}
+{% include 'blog/_tweet.html' with post=post %}
 {% endfor %}
 
 {% endif %}
+{% block extra-css%}
+<style>
+        .tweet-username{
+        font-size:22px;
+        font-weight:bold;
+
+        .tweet-posted{
+            padding-left:5px;
+            font-size:16px;
+            color:grey;
+        }
+}
+
+</style>
+
+{% endblock %}
 {% endblock content %}
+

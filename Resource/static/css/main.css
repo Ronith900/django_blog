@@ -101,12 +101,12 @@ a.article-title:hover {
 .tweet-container {
   background: #ffffff;
   padding: 10px 20px;
-  border: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
   border-radius: 3px;
   display:flex;
   flex-direction: row;
   justify-content:flex-left;
-  margin: 5px 70px;
+  margin: 0px 70px;
 
 }
 

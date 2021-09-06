@@ -15,8 +15,8 @@
                     <i class="material-icons">edit</i>
                 </a>
                 <ul id='dropdown1' class='dropdown-content'>
-                    <li><a href="{% url 'blog-update' post.id %}"><i class="material-icons">view_module</i>Edit</a></li>
-                    <li><a href="{% url 'blog-delete' post.id %}"><i class="material-icons">cloud</i>Delete</a></li>
+                    <li><a href="{% url 'blog-update' post.id %}">Edit</a></li>
+                    <li><a href="{% url 'blog-delete' post.id %}">Delete</a></li>
                 </ul>
                 <div class="tweet-posted">{{post.created_at}}</div>
 

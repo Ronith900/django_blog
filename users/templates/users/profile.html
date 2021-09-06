@@ -6,7 +6,7 @@
     <div class="card-content center">
         <div>
                     <img src="{{user.profile.image.url}}" alt="profile-pic" class="circle responsive-img"
-             style="width:140px;height;140px,radius:70px:cover:fit;"><br>
+             style="width:140px;height:140px;border-radius:70px;cover:fit;"><br>
             <span class="right"><a class="waves-effect waves-teal btn" href="{% url 'profile-edit' user.profile.pk %}">Edit</a></span>
         </div>
         <h5 style="padding-left:15px;">{{user.profile.bio}}</h5>

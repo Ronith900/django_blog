@@ -2,110 +2,27 @@
 
 {% block content%}
 
-<div class="profile-container">
-    <div class="user-profile user-profile-image">
-        <img src="{{user.profile.image.url}}" alt="profile-pic" class="circle responsive-img"
-                 style="width:80px;height;80px,radius:40px">
+<div class="card">
+    <div class="card-content center">
+        <div>
+                    <img src="{{user.profile.image.url}}" alt="profile-pic" class="circle responsive-img"
+             style="width:140px;height;140px,radius:70px:cover:fit;"><br>
+            <span class="right"><a class="waves-effect waves-teal btn" href="{% url 'profile-edit' user.profile.pk %}">Edit</a></span>
+        </div>
+        <h5 style="padding-left:15px;">{{user.profile.bio}}</h5>
+        <ul class="collection">
+            <li class="collection-item">Location: {{user.profile.country}}</li>
+            <li class="collection-item">Age: 26</li>
+            <li class="collection-item">Occupation: {{user.profile.occupation}}</li>
 
+        </ul>
 
-    </div>
-    <div class="user-profile">
-        <div class="up-name">
-            {{user.username}}
-            <span class="float-right">
-            <a class="btn btn-primary btn-sm" href="{% url 'profile-edit' user.profile.pk %}">Edit</a>
-        </span>
-        </div>
-        <div class="up-bio">
-            <span><b>Bio:</b> {{user.profile.bio}}</span>
-        </div>
-        <div class="up-extra-info">
-            <div class="up-extra-info-box">Location: {{user.profile.country}}</div>
-            <div class="up-extra-info-box">DOB: 21/10/1994</div>
-            <div class="up-extra-info-box">Occupation: {{user.profile.occupation}}</div>
-        </div>
     </div>
 </div>
-<br>
 {% endblock %}
 
 {% block extra-css %}
 <style rel="stylesheet">
-    .m-con{
-        border:1px solid grey;
-        height:500px;
-        display:flex;
-        flex-direction:row;
-        justify-content:space-between;
-        align-items:center;
-    }
-
-    .b1{
-        width:50px;
-        height:50px;
-        background:gold;
-        margin:50px;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-    }
-
-    .up-extra-info{
-        margin-top:2rem;
-        display:flex;
-        flex-direction:row;
-        justify-content:space-between;
-        align-content:center;
-    }
-
-    .up-extra-info-box{
-        width:15rem;
-        height:5rem;
-        display:flex;
-        justify-content:start-left;
-        align-items:center;
-    }
-
-    .up-bio{
-        margin-top:1rem;
-        margin-bottom:1rem;
-        border-bottom: 1px solid #e3e3e3
-    }
-
-    .test{}
-
-
-    .profile-container{
-      background: #ffffff;
-      padding: 10px 20px;
-      border: 1px solid #dddddd;
-      border-radius: 3px;
-      display:flex;
-      flex-direction:row;
-      height:300px;;
-      margin-top:2rem;
-
-    }
-
-    .up-name{
-    font-weight:bold;
-    font-size:25px;
-    }
-
-    .user-profile{
-        flex: auto;
-        flex-grow:1;
-        width:7rem;
-        height:7rem;
-        margin:1rem
-    }
-
-    .user-profile-image{
-        flex-grow:0;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-    }
 
 
 </style>

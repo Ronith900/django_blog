@@ -54,7 +54,7 @@
             <a href="{% url 'blog-home' %}" class="brand-logo center">My Space</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li class="active"><a href="{% url 'blog-home' %}">Home</a></li>
+                <li><a href="{% url 'blog-home' %}">Home</a></li>
                 <li><a href="{% url 'blog-create' %}">Create</a></li>
             </ul>
             <ul id="nav-mobile2" class="right hide-on-med-and-down">
@@ -69,7 +69,7 @@
         </div>
     </nav>
     <ul class="sidenav" id="mobile-demo">
-        <li class="active"><a href="{% url 'blog-home' %}">Home</a></li>
+        <li><a href="{% url 'blog-home' %}">Home</a></li>
         <li><a href="{% url 'blog-create' %}">Create</a></li>
         {% if user.is_authenticated %}
         <li><a href="{% url 'user-profile' user.pk %}">{{user.username}}</a></li>
@@ -116,6 +116,7 @@
 
   $(document).ready(function(){
     $('.sidenav').sidenav();
+    $('.dropdown-trigger').dropdown();
   });
 
 

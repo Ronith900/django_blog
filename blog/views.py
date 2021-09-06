@@ -39,6 +39,7 @@ class About(LoginRequiredMixin, TemplateView):
         context['title'] = 'About Page'
         return context
 
+
 class Create(LoginRequiredMixin, CreateView):
     template_name = 'blog/create.html'
     form_class = CreateTweetForm
@@ -50,6 +51,11 @@ class Create(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
+    def get_context_data(self, **kwargs):
+        context = super(Create, self).get_context_data(**kwargs)
+        context['tweet_type'] = 'Create New'
+        return context
+
 
 class UpdateTweet(LoginRequiredMixin, UpdateView):
     template_name = 'blog/create.html'
@@ -58,6 +64,11 @@ class UpdateTweet(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse('blog-home')
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateTweet, self).get_context_data(**kwargs)
+        context['tweet_type'] = 'Edit'
+        return context
 
 
 class DeleteTweet(LoginRequiredMixin, DeleteView):

@@ -4,7 +4,8 @@
 
 <div class="profile-container">
     <div class="user-profile user-profile-image">
-        <img src="{{user.profile.image.url}}" alt="profile-pic" class="profile-pic float-center">
+        <img src="{{user.profile.image.url}}" alt="profile-pic" class="circle responsive-img"
+                 style="width:80px;height;80px,radius:40px">
 
 
     </div>
@@ -26,12 +27,6 @@
     </div>
 </div>
 <br>
-<!--<div class="m-con">-->
-    <!--<div class="b1">A</div>-->
-    <!--<div class="b1">B</div>-->
-    <!--<div class="b1">C</div>-->
-<!--</div>-->
-
 {% endblock %}
 
 {% block extra-css %}
